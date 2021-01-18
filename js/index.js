@@ -40,12 +40,23 @@ window.addEventListener('DOMContentLoaded', () => {
       a: 3,
     },
     {
-      q: 'What is the capital of Australia',
+      q: 'What is the capital of Australia?',
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
-  ];
+    {
+      q: 'Who is the current Prime Minister of Australia?',
+      o: ['Malcolm Turnball', 'Scott Morrison', 'Tony Abbot', 'Daniel Andrews'],
+      a: 2,
 
+    },
+    {
+      q: 'What is the national animal of Australia?',
+      o: ['Koala', 'Ostritch', 'Wallabies', 'Kangaroo'],
+      a: 4,
+    }
+  ];
+  // console.log(quizArray.map);
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
     const quizWrap = document.querySelector('#quizWrap');
@@ -71,15 +82,25 @@ window.addEventListener('DOMContentLoaded', () => {
         //highlight the li if it is the correct answer
         let li = `li_${index}_${i}`;
         let r = `radio_${index}_${i}`;
+
         liElement = document.querySelector('#' + li);
         radioElement = document.querySelector('#' + r);
 
-        if (quizItem.a == i) {
+        if (quizItem.a == 1 ) {
           //change background color of li element here
+          // console.log('quizItem.o[1]: '+quizItem.o[1]);
+          // console.log('quizItem.a == 1 ' + quizItem.a);
+          
         }
 
         if (radioElement.checked) {
           // code for task 1 goes here
+          console.log("radioElement: " + radioElement);
+          if (quizItem.a == i) {
+            console.log('no');
+
+          }
+          console.log('yes');
         }
       }
     });
@@ -87,4 +108,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // call the displayQuiz function
   displayQuiz();
+
+  // submit button
+  const submit = document.querySelector('#btnSubmit');
+  submit.addEventListener('click', function (event) {
+
+    // call the calculateScore
+    calculateScore();
+    
+
+  });  
+
+  // reset button
+  const reset = document.querySelector('#btnReset');
+  reset.addEventListener('click', function (event) {
+  document.location.reload(true);
+  // display quiz again
+  displayQuiz();
+  // window.location.href
+
+  });
+  
+
 });
