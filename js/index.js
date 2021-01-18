@@ -86,6 +86,8 @@ window.addEventListener('DOMContentLoaded', () => {
         liElement = document.querySelector('#' + li);
         radioElement = document.querySelector('#' + r);
 
+        console.log('quizItem.o[0] ' + quizItem.o[0]);
+
         if (quizItem.a == 1 ) {
           //change background color of li element here
           // console.log('quizItem.o[1]: '+quizItem.o[1]);
@@ -96,7 +98,8 @@ window.addEventListener('DOMContentLoaded', () => {
         if (radioElement.checked) {
           // code for task 1 goes here
           console.log("radioElement: " + radioElement);
-          if (quizItem.a == i) {
+          if (quizItem.a == i && quizItem.o[0]) {
+            score++
             console.log('no');
 
           }
